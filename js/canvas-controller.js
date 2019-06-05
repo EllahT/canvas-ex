@@ -1,8 +1,7 @@
 'use strict'
 let gCanvas;
 let gCtx;
-let gDrawing;
-let gMouseDown; 
+let gMouseDown;
 
 function init() {
     gCanvas = document.querySelector('#my-canvas');
@@ -11,64 +10,67 @@ function init() {
     gCanvas.width = window.innerWidth - 50;
     gCanvas.height = window.innerHeight - 180;
 
-    gCanvas.addEventListener("mouseup", stopInterval);
+    gCanvas.addEventListener("mouseup", stopMovement);
 }
 
 function onChangeMouseStat(isDown) {
-    gMouseDown = (isDown)? true : false;
-
+    gMouseDown = (isDown) ? true : false;
 }
 
 function onDraw(ev) {
     let currElement = document.getElementById('shape-select').value;
     let currColor = document.getElementById('color-picked').value;
-    gDrawing = setInterval(function () {
-        if (!gMouseDown) return;
-        console.log(ev);
-        console.log(currElement);
-        console.log(currColor);
-        const { offsetX, offsetY } = ev;
-        switch (currElement) {
-            case 'square':
-                drawSquare(offsetX, offsetY, currColor)
-                break;
-            case 'circle':
-                drawCircle(offsetX, offsetY, currColor)
-                break;
-            // case 'text':
-            //     drawText('test',offsetX, offsetY)
-            //     break;
+    if (!gMouseDown) return;
+    console.log(ev);
+    console.log(currElement);
+    console.log(currColor);
+    const { offsetX, offsetY } = ev;
+    switch (currElement) {
+        case 'square':
+            drawSquare(offsetX, offsetY, currColor)
+            break;
+        case 'circle':
+            drawCircle(offsetX, offsetY, currColor)
+            break;
+        case 'line':
+            drawLine(offsetX, offsetY, currColor)
+            break;
         }
-    }, 1, ev);
-    // gCtx.save()
-    // gCtx.restore()
-
-    // gets shape from user acc to option input
-    // gets color from user
-    // switch: in case 'square'/'circle'
 }
 
-function stopInterval() {
+function stopMovement() {
     onChangeMouseStat(false);
-    clearInterval(gDrawing);
 }
 
 function drawSquare(x, y, color) {
-    gCtx.rect(x,y, 20, 20)
-    gCtx.fillStyle = color
-    gCtx.fillRect(x,y, 20, 20)
+    gCtx.rect(x, y, 20, 20)
+    // gCtx.fillStyle = color
+    // gCtx.fillRect(x, y, 20, 20)
+    gCtx.strokeStyle = color;
     gCtx.stroke()
-    gCtx.fill()
+    // gCtx.fill()
 }
 
 function drawCircle(x, y, color) {
+    gCtx.beginPath();
+    gCtx.arc(x, y, 20, 0, 2 * Math.PI);
+    gCtx.strokeStyle = color;
+    gCtx.stroke();
+}
 
+function drawLine(x, y, color) {
+    gCtx.beginPath();
+    gCtx.arc(x, y, 3, 0, 2 * Math.PI);
+    gCtx.strokeStyle = color;
+    gCtx.stroke();
+    gCtx.fillStyle = color;
+    gCtx.fill();
 }
 
 function onDownload(elLink) {
     const data = gCanvas.toDataURL()
-    elLink.href = data   
-    
+    elLink.href = data
+
     elLink.download = 'myBeautifulCanvas.jpg'
 }
 
