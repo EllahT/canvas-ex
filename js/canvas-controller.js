@@ -14,6 +14,7 @@ function init() {
 }
 
 function onDraw(ev) {
+    let 
     console.log('clicked canvas');
     // gets shape from user acc to option input
     // gets color from user
