@@ -72,6 +72,10 @@ function onDownload(elLink) {
     elLink.download = 'myBeautifulCanvas.jpg';
 }
 
+function onClear() {
+    gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+}
+
 //TODO: User selects a color (starting- fontColor)
 //TODO: User Selects a shape- square, circle
 //TODO: User can draw the shape freely on the canvas
