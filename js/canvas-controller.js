@@ -9,9 +9,12 @@ function init() {
 
     gCanvas.width = window.innerWidth - 50;
     gCanvas.height = window.innerHeight - 150;
+
+    gCanvas.addEventListener("mousedown", onDraw);
 }
 
 function onDraw(ev) {
+    console.log('clicked canvas');
     // gets shape from user acc to option input
     // gets color from user
     // switch: in case 'square'/'circle'
