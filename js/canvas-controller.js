@@ -55,10 +55,10 @@ function drawCircle(color) {
 }
 
 function onDownload(elLink) {
-    const data = gCanvas.toDataURL()
-    elLink.href = data   
+    const data = gCanvas.toDataURL();
+    elLink.href = data;
     
-    elLink.download = 'myBeautifulCanvas.jpg'
+    elLink.download = 'myBeautifulCanvas.jpg';
 }
 
 //TODO: User selects a color (starting- fontColor)
