@@ -3,7 +3,6 @@ let gCanvas;
 let gCtx;
 let gDrawing;
 
-
 function init() {
     gCanvas = document.querySelector('#my-canvas');
     gCtx = gCanvas.getContext('2d');
@@ -15,26 +14,26 @@ function init() {
 }
 
 function onDraw(ev) {
-    gDrawing = setInterval(function (){
-        console.log('clicked canvas');
+    let currElement = document.getElementById('shape-select').value;
+    let currColor = document.getElementById('color-picked').value;
+    gDrawing = setInterval(function () {
         console.log(ev);
-    },100, ev);
-    
+        console.log(currElement);
+        console.log(currColor);
+        const { offsetX, offsetY } = ev;
+        switch (currElement) {
+            case 'square':
+                drawSquare(offsetX, offsetY, currColor)
+                break;
+            case 'circle':
+                drawCircle(offsetX, offsetY, currColor)
+                break;
+            // case 'text':
+            //     drawText('test',offsetX, offsetY)
+            //     break;
+        }
+    }, 100, ev);
     // gCtx.save()
-    // const offsetX = ev.offsetX
-    // const offsetY = ev.offsetY
-    const {offsetX, offsetY} = ev;
-    // switch (currElement) {
-        // case 'triangle':
-        //     drawTriangle()
-        //     break;
-        // case 'rect':
-        //     drawRect(offsetX, offsetY)
-        //     break;
-        // case 'text':
-        //     drawText('test',offsetX, offsetY)
-        //     break;
-    // }
     // gCtx.restore()
 
     // gets shape from user acc to option input
@@ -46,16 +45,20 @@ function stopInterval() {
     clearInterval(gDrawing);
 }
 
-function drawSquare(color) {
-
+function drawSquare(x, y, color) {
+    gCtx.rect(x,y, 150, 150)
+    gCtx.fillStyle = color
+    gCtx.fillRect(x,y, 150, 150)
+    gCtx.stroke()
+    gCtx.fill()
 }
 
-function drawCircle(color) {
+function drawCircle(x, y, color) {
 
 }
 
 function onDownload() {
-    
+
 }
 
 // User selects a color (starting- fontColor)
