@@ -18,14 +18,14 @@
         <ul class="nav-bar">
             <li class="color-picker">
                 <label>pick a color to draw</label>
-                <input type="color">
+                <input id="color-picked" type="color" value="#000000">
             </li>
             <li class="shape-picker">
                 <label>pick a shape to draw</label>
                 <select id="shape-select">
-                    <option value="">--Please choose an option--</option>
-                    <option value="dog">Square</option>
-                    <option value="cat">Circle</option>
+                        <!-- <option value="">--Please choose an option--</option> -->
+                        <option id="square" value="square" selected>Square</option>
+                        <option id="circle" value="circle">Circle</option>
                 </select>
             </li>
             <li class="downloadBtn">
@@ -34,7 +34,7 @@
         </ul>
     </nav>
 
-    <canvas onmousedown="onDraw(event)" id="my-canvas" width="500" height="400">
+    <canvas onmousedown="onChangeMouseStat(true)" onmousemove="onDraw(event)" id="my-canvas" width="500" height="400">
         Update your browser to enjoy canvas!
     </canvas>
 

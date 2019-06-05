@@ -2,7 +2,7 @@
 let gCanvas;
 let gCtx;
 let gDrawing;
-
+let gMouseDown; 
 
 function init() {
     gCanvas = document.querySelector('#my-canvas');
@@ -14,27 +14,33 @@ function init() {
     gCanvas.addEventListener("mouseup", stopInterval);
 }
 
+function onChangeMouseStat(isDown) {
+    gMouseDown = (isDown)? true : false;
+
+}
+
 function onDraw(ev) {
-    gDrawing = setInterval(function (){
-        console.log('clicked canvas');
+    let currElement = document.getElementById('shape-select').value;
+    let currColor = document.getElementById('color-picked').value;
+    gDrawing = setInterval(function () {
+        if (!gMouseDown) return;
         console.log(ev);
-    },100, ev);
-    
+        console.log(currElement);
+        console.log(currColor);
+        const { offsetX, offsetY } = ev;
+        switch (currElement) {
+            case 'square':
+                drawSquare(offsetX, offsetY, currColor)
+                break;
+            case 'circle':
+                drawCircle(offsetX, offsetY, currColor)
+                break;
+            // case 'text':
+            //     drawText('test',offsetX, offsetY)
+            //     break;
+        }
+    }, 1, ev);
     // gCtx.save()
-    // const offsetX = ev.offsetX
-    // const offsetY = ev.offsetY
-    const {offsetX, offsetY} = ev;
-    // switch (currElement) {
-        // case 'triangle':
-        //     drawTriangle()
-        //     break;
-        // case 'rect':
-        //     drawRect(offsetX, offsetY)
-        //     break;
-        // case 'text':
-        //     drawText('test',offsetX, offsetY)
-        //     break;
-    // }
     // gCtx.restore()
 
     // gets shape from user acc to option input
@@ -43,14 +49,19 @@ function onDraw(ev) {
 }
 
 function stopInterval() {
+    onChangeMouseStat(false);
     clearInterval(gDrawing);
 }
 
-function drawSquare(color) {
-
+function drawSquare(x, y, color) {
+    gCtx.rect(x,y, 20, 20)
+    gCtx.fillStyle = color
+    gCtx.fillRect(x,y, 20, 20)
+    gCtx.stroke()
+    gCtx.fill()
 }
 
-function drawCircle(color) {
+function drawCircle(x, y, color) {
 
 }
 
@@ -66,4 +77,6 @@ function onDownload(elLink) {
 //TODO: User can draw the shape freely on the canvas
 //TODO: Play with some random variations
 //DONE: add download feature
-//Bonus: Add share to facebook feature
+/*
+Bonus: Add share to facebook
+*/
