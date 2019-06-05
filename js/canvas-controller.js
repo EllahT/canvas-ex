@@ -8,7 +8,7 @@ function init() {
     gCtx = gCanvas.getContext('2d');
 
     gCanvas.width = window.innerWidth - 50;
-    gCanvas.height = window.innerHeight - 150;
+    gCanvas.height = window.innerHeight - 180;
 
     gCanvas.addEventListener("mouseup", stopInterval);
 }
@@ -59,11 +59,16 @@ function drawCircle(x, y, color) {
 
 function onDownload() {
 
+function onDownload(elLink) {
+    const data = gCanvas.toDataURL()
+    elLink.href = data   
+    
+    elLink.download = 'myBeautifulCanvas.jpg'
 }
 
-// User selects a color (starting- fontColor)
-// User Selects a shape- square, circle
-// User can draw the shape freely on the canvas
-// Play with some random variations
-// add download feature
-// Bonus: Add share to facebook feature
+//TODO: User selects a color (starting- fontColor)
+//TODO: User Selects a shape- square, circle
+//TODO: User can draw the shape freely on the canvas
+//TODO: Play with some random variations
+//DONE: add download feature
+//Bonus: Add share to facebook feature

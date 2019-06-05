@@ -10,14 +10,17 @@
 </head>
 
 <body onload="init()">
-
+    <header>
+        <h1>Welcome to our Canvas!</h1>
+    </header>
+    
     <nav>
-        <ul>
-            <li id="color-picker">
+        <ul class="nav-bar">
+            <li class="color-picker">
                 <label>pick a color to draw</label>
                 <input id="color-picked" type="color" value="#000000">
             </li>
-            <li id="shape-picker">
+            <li class="shape-picker">
                 <label>pick a shape to draw</label>
                 <select id="shape-select">
                         <!-- <option value="">--Please choose an option--</option> -->
@@ -25,8 +28,8 @@
                         <option id="circle" value="circle">Circle</option>
                 </select>
             </li>
-            <li>
-                <button>download</button>
+            <li class="downloadBtn">
+                <a href="#" onclick="onDownload(this)" download="">Download</a>
             </li>
         </ul>
     </nav>

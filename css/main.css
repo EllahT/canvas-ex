@@ -1,3 +1,38 @@
+@font-face {
+    font-family: 'questrial';
+    src: url('../fonts/Questrial-Regular.ttf');
+}
+
+a, a:visited, a:active {
+    text-decoration: none;
+    color: black;
+}
+
 #my-canvas {
     border: 3px solid black;
+}
+
+h1 {
+    text-align: center;
+}
+
+.nav-bar {
+    font-family: 'questrial';
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+}
+
+li {
+    margin: 10px;
+}
+
+.downloadBtn a {
+    padding: 10px;
+    background-color: lightskyblue;
+    border-radius: 10px;
+}
+
+.downloadBtn a:hover {
+    background-color: lightseagreen;
 }
