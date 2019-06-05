@@ -12,24 +12,19 @@ a, a:visited, a:active {
     border: 3px solid black;
 }
 
+h1 {
+    text-align: center;
+}
+
 .nav-bar {
     font-family: 'questrial';
     list-style-type: none;
     display: flex;
     flex-direction: row;
-    text-align: center;
 }
 
 li {
     margin: 10px;
-}
-
-.color-picker {
-
-}
-
-.shape-picker {
-
 }
 
 .downloadBtn a {

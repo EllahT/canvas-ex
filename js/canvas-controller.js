@@ -9,7 +9,7 @@ function init() {
     gCtx = gCanvas.getContext('2d');
 
     gCanvas.width = window.innerWidth - 50;
-    gCanvas.height = window.innerHeight - 150;
+    gCanvas.height = window.innerHeight - 180;
 
     gCanvas.addEventListener("mouseup", stopInterval);
 }
