@@ -11,7 +11,6 @@ function init() {
     gCanvas.width = window.innerWidth - 50;
     gCanvas.height = window.innerHeight - 150;
 
-    // gCanvas.addEventListener("mousedown", onDraw, event);
     gCanvas.addEventListener("mouseup", stopInterval);
 }
 
@@ -21,6 +20,23 @@ function onDraw(ev) {
         console.log(ev);
     },100, ev);
     
+    // gCtx.save()
+    // const offsetX = ev.offsetX
+    // const offsetY = ev.offsetY
+    const {offsetX, offsetY} = ev;
+    // switch (currElement) {
+        // case 'triangle':
+        //     drawTriangle()
+        //     break;
+        // case 'rect':
+        //     drawRect(offsetX, offsetY)
+        //     break;
+        // case 'text':
+        //     drawText('test',offsetX, offsetY)
+        //     break;
+    // }
+    // gCtx.restore()
+
     // gets shape from user acc to option input
     // gets color from user
     // switch: in case 'square'/'circle'
