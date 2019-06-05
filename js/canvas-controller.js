@@ -69,7 +69,10 @@ function onDownload(elLink) {
 }
 
 function onClear() {
-    gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
+    document.getElementById('shape-select').value = '1';
+    gCtx.rect(0, 0, gCanvas.width, gCanvas.height);
+    gCtx.fillStyle = 'white';
+    gCtx.fill();
 }
 
 //TODO: User selects a color (starting- fontColor)
