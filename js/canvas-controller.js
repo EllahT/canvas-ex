@@ -7,8 +7,22 @@ function init() {
     gCanvas = document.querySelector('#my-canvas');
     gCtx = gCanvas.getContext('2d');
 
-    gCanvas.width = window.innerWidth - 50
-    gCanvas.height = window.innerHeight - 100
+    gCanvas.width = window.innerWidth - 50;
+    gCanvas.height = window.innerHeight - 150;
+}
+
+function onDraw(ev) {
+    // gets shape from user acc to option input
+    // gets color from user
+    // switch: in case 'square'/'circle'
+}
+
+function drawSquare(color) {
+
+}
+
+function drawCircle(color) {
+
 }
 
 
