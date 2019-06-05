@@ -21,9 +21,6 @@ function onDraw(ev) {
     let currElement = document.getElementById('shape-select').value;
     let currColor = document.getElementById('color-picked').value;
     if (!gMouseDown) return;
-    console.log(ev);
-    console.log(currElement);
-    console.log(currColor);
     const { offsetX, offsetY } = ev;
     switch (currElement) {
         case 'square':
@@ -44,11 +41,8 @@ function stopMovement() {
 
 function drawSquare(x, y, color) {
     gCtx.rect(x, y, 20, 20)
-    // gCtx.fillStyle = color
-    // gCtx.fillRect(x, y, 20, 20)
     gCtx.strokeStyle = color;
     gCtx.stroke()
-    // gCtx.fill()
 }
 
 function drawCircle(x, y, color) {
