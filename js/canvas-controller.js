@@ -1,6 +1,7 @@
 'use strict'
 let gCanvas;
 let gCtx;
+let gDrawing;
 
 
 function init() {
@@ -11,14 +12,21 @@ function init() {
     gCanvas.height = window.innerHeight - 150;
 
     gCanvas.addEventListener("mousedown", onDraw);
+    gCanvas.addEventListener("mouseup", stopInterval);
 }
 
 function onDraw(ev) {
-    let 
-    console.log('clicked canvas');
+    gDrawing = setInterval(function (){
+        console.log('clicked canvas');
+    },100);
+    
     // gets shape from user acc to option input
     // gets color from user
     // switch: in case 'square'/'circle'
+}
+
+function stopInterval() {
+    clearInterval(gDrawing);
 }
 
 function drawSquare(color) {
