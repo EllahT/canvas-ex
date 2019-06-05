@@ -2,6 +2,7 @@
 let gCanvas;
 let gCtx;
 let gDrawing;
+let gMouseDown; 
 
 function init() {
     gCanvas = document.querySelector('#my-canvas');
@@ -13,10 +14,16 @@ function init() {
     gCanvas.addEventListener("mouseup", stopInterval);
 }
 
+function onChangeMouseStat(isDown) {
+    gMouseDown = (isDown)? true : false;
+
+}
+
 function onDraw(ev) {
     let currElement = document.getElementById('shape-select').value;
     let currColor = document.getElementById('color-picked').value;
     gDrawing = setInterval(function () {
+        if (!gMouseDown) return;
         console.log(ev);
         console.log(currElement);
         console.log(currColor);
@@ -32,7 +39,7 @@ function onDraw(ev) {
             //     drawText('test',offsetX, offsetY)
             //     break;
         }
-    }, 100, ev);
+    }, 1, ev);
     // gCtx.save()
     // gCtx.restore()
 
@@ -42,13 +49,14 @@ function onDraw(ev) {
 }
 
 function stopInterval() {
+    onChangeMouseStat(false);
     clearInterval(gDrawing);
 }
 
 function drawSquare(x, y, color) {
-    gCtx.rect(x,y, 150, 150)
+    gCtx.rect(x,y, 20, 20)
     gCtx.fillStyle = color
-    gCtx.fillRect(x,y, 150, 150)
+    gCtx.fillRect(x,y, 20, 20)
     gCtx.stroke()
     gCtx.fill()
 }
@@ -56,8 +64,6 @@ function drawSquare(x, y, color) {
 function drawCircle(x, y, color) {
 
 }
-
-function onDownload() {
 
 function onDownload(elLink) {
     const data = gCanvas.toDataURL()
@@ -71,4 +77,6 @@ function onDownload(elLink) {
 //TODO: User can draw the shape freely on the canvas
 //TODO: Play with some random variations
 //DONE: add download feature
-//Bonus: Add share to facebook feature
+/*
+Bonus: Add share to facebook
+*/
