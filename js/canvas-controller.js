@@ -68,12 +68,6 @@ function drawLine(x, y, color) {
 }
 
 function onDownload(elLink) {
-<<<<<<< HEAD
-    const data = gCanvas.toDataURL()
-    elLink.href = data
-
-    elLink.download = 'myBeautifulCanvas.jpg'
-=======
     const data = gCanvas.toDataURL();
     elLink.href = data;
     
@@ -82,7 +76,6 @@ function onDownload(elLink) {
 
 function onClear() {
     gCtx.clearRect(0, 0, gCanvas.width, gCanvas.height);
->>>>>>> 8f437d45bf4dff285a717f24bc60cefd985b6336
 }
 
 //TODO: User selects a color (starting- fontColor)
