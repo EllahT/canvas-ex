@@ -20,6 +20,7 @@
                 <label>pick a color to draw</label>
                 <input id="color-picked" type="color" value="#000000">
             </li>
+            
             <li class="shape-picker">
                 <label>pick a shape to draw</label>
                 <select id="shape-select">
@@ -29,9 +30,14 @@
                         <option id="line" value="line">Line</option>
                 </select>
             </li>
-            <li class="downloadBtn">
+            
+            <li class="btn downloadBtn">
                 <a href="#" onclick="onDownload(this)" download="">Download</a>
             </li>
+            
+            <li>
+                    <button class="btn clearBtn" onclick="onClear(this)">Clear Canvas</button>
+                </li>
         </ul>
     </nav>
 
