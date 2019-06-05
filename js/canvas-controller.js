@@ -25,7 +25,9 @@ function drawCircle(color) {
 
 }
 
-
+function onDownload() {
+    
+}
 
 // User selects a color (starting- fontColor)
 // User Selects a shape- square, circle
